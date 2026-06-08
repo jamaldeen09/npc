@@ -1,0 +1,113 @@
+/* ============ FACIAL EXPRESSIONS ============ */
+
+/* Blink animation */
+@keyframes blink {
+  0%,
+  90%,
+  100% {
+    transform: scaleY(1);
+  }
+  93% {
+    transform: scaleY(0.1);
+  }
+  96% {
+    transform: scaleY(1);
+  }
+}
+
+/* Continuous eyebrow animations — applied via className */
+.listening-float {
+  animation: eyebrow-float 2s ease-in-out infinite;
+}
+.speaking-float {
+  animation: eyebrow-talk 0.42s ease-in-out infinite;
+}
+.happy-float {
+  animation: happy-brow-float 2s ease-in-out infinite;
+}
+
+@keyframes eyebrow-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes eyebrow-talk {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1.5px);
+  }
+}
+
+@keyframes happy-brow-float {
+  0%,
+  100% {
+    transform: translateY(-3px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* State‑based eyebrow/eye rules (these are overridden by Framer Motion but keep as fallback) */
+.is-idle .eyebrow.left {
+  transform: translateY(0) rotate(0deg);
+}
+.is-idle .eyebrow.right {
+  transform: translateY(0) rotate(0deg);
+}
+
+.is-listening .eyebrow.left,
+.is-listening .eyebrow.right {
+  animation: eyebrow-float 2s ease-in-out infinite;
+}
+
+.is-thinking .eyebrow.left {
+  transform: translateY(-2px) rotate(10deg);
+}
+.is-thinking .eyebrow.right {
+  transform: translateY(1px) rotate(-10deg);
+}
+
+.is-speaking .eyebrow.left,
+.is-speaking .eyebrow.right {
+  animation: eyebrow-talk 0.42s ease-in-out infinite;
+}
+
+.is-angry .eyebrow.left {
+  transform: translateY(3px) rotate(24deg);
+}
+.is-angry .eyebrow.right {
+  transform: translateY(3px) rotate(-24deg);
+}
+.is-angry .eye {
+  transform: scaleY(0.75);
+  animation-duration: 3.2s;
+}
+
+.is-happy .eyebrow.left,
+.is-happy .eyebrow.right {
+  transform: translateY(-3px) rotate(0deg);
+  animation: happy-brow-float 2s ease-in-out infinite;
+}
+.is-happy .eye {
+  transform: scale(1.08);
+  animation-duration: 6s;
+}
+
+.is-sleep .eye {
+  transform: scaleY(0.05);
+  animation: none;
+}
+.is-sleep .eyebrow.left,
+.is-sleep .eyebrow.right {
+  transform: translateY(0) rotate(0deg);
+  animation: none;
+}

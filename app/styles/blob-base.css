@@ -1,0 +1,145 @@
+.npc {
+  animation:
+    blob-morph 7s ease-in-out infinite,
+    bob 4.5s ease-in-out infinite;
+}
+
+.is-idle .npc {
+  animation:
+    blob-morph 7s ease-in-out infinite,
+    bob 4.5s ease-in-out infinite;
+}
+
+/* ============ BLOB BODY STATES ============ */
+.is-listening .npc {
+  animation:
+    blob-morph 3.6s ease-in-out infinite,
+    listen-pulse 1.2s ease-in-out infinite;
+}
+
+.is-thinking .npc {
+  animation:
+    blob-morph 1.6s ease-in-out infinite,
+    think-vibe 0.18s linear infinite,
+    hue-cycle 2.2s linear infinite;
+}
+
+.is-speaking .npc {
+  animation:
+    blob-morph 2.4s ease-in-out infinite,
+    speak-bounce 0.42s ease-in-out infinite;
+}
+
+/* ============ ANGRY STATE ============ */
+.is-angry .npc {
+  animation:
+    blob-morph 1.4s ease-in-out infinite,
+    angry-vibe 0.12s linear infinite,
+    angry-flash 0.8s linear infinite;
+}
+
+@keyframes angry-vibe {
+  0% {
+    translate: 0 0;
+  }
+  25% {
+    translate: -1% 0.5%;
+  }
+  50% {
+    translate: 1% -0.5%;
+  }
+  75% {
+    translate: -0.5% -0.5%;
+  }
+  100% {
+    translate: 0 0;
+  }
+}
+
+@keyframes angry-flash {
+  0% {
+    filter: hue-rotate(0deg) saturate(1.2);
+  }
+  50% {
+    filter: hue-rotate(-45deg) saturate(1.5);
+  }
+  100% {
+    filter: hue-rotate(0deg) saturate(1.2);
+  }
+}
+
+/* ============ HAPPY STATE ============ */
+.is-happy .npc {
+  animation:
+    blob-morph 4.5s ease-in-out infinite,
+    happy-bounce 1.8s ease-in-out infinite,
+    happy-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes happy-bounce {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  30% {
+    transform: translateY(-4%) scale(1.03);
+  }
+  60% {
+    transform: translateY(0) scale(0.98);
+  }
+}
+
+@keyframes happy-glow {
+  0%,
+  100% {
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    filter: brightness(1.15) saturate(1.2);
+  }
+}
+
+/* ============ SLEEP STATE ============ */
+.is-sleep .npc {
+  animation:
+    blob-morph 8s ease-in-out infinite,
+    sleep-breathe 4s ease-in-out infinite;
+}
+
+@keyframes sleep-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.015);
+  }
+}
+
+/* ============ SAD STATE ============ */
+.is-sad .npc {
+  animation:
+    blob-morph 6s ease-in-out infinite,
+    sad-sway 3s ease-in-out infinite,
+    sad-fade 2.5s ease-in-out infinite;
+}
+
+@keyframes sad-sway {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-1%) scale(0.985);
+  }
+}
+
+@keyframes sad-fade {
+  0%,
+  100% {
+    filter: saturate(0.8) brightness(0.9);
+  }
+  50% {
+    filter: saturate(0.55) brightness(0.85);
+  }
+}
